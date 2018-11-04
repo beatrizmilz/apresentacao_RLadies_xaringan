@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Criando apresentações com R e Xaringan</title>
+    <title>Comunicando seus resultados: criando apresentações com R</title>
     <meta charset="utf-8">
     <meta name="author" content="Beatriz Milz" />
     <link href="libs/remark-css/kunoichi.css" rel="stylesheet" />
@@ -21,12 +21,13 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Criando apresentações com R e Xaringan
+# Comunicando seus resultados: criando apresentações com R
 ## Meetup R-Ladies SP
 ### Beatriz Milz
-### 28/10/2018 (Atualizado em: 2018-10-28)
+### 21/11/2018 (Atualizado em: 2018-11-04)
 
 ---
+
 
 class: split-two with-border
 .column.bg-main1[.content[
@@ -49,10 +50,17 @@ class: split-two with-border
 
 
 ]]
+&lt;script src="remark-latest.min.js"&gt;
 
 
+---
+# Comunicando seus resultados: criando apresentações com R
 
+- Introdução sobre a linguagem de marcação markdown e sobre arquivos do tipo RMarkdown.
 
+- Prática sobre como criar uma apresentação utilizando o pacote Xaringan. 
+
+- Hospedagem da apresentação utilizando o Github Pages.
 ---
 class: inverse, middle
 
@@ -79,8 +87,8 @@ class: inverse, middle
 # Pré-requisitos:
 - [R](https://www.r-project.org/)
 - [RStudio](https://www.rstudio.com/)
-- Pacote[Rmarkdown](https://rmarkdown.rstudio.com/)
-- Pacote [Xaringan](https://github.com/yihui/xaringan)
+- Pacote [Rmarkdown](https://rmarkdown.rstudio.com/) * O R instala esse pacote automaticamente quando necessário.
+- Pacote [Xaringan](https://github.com/yihui/xaringan) 
 - Pacote [knitr](http://yihui.name/knitr/)
 
 ---
@@ -117,6 +125,13 @@ background-size: cover
 
 ## Rmarkdown
 * É um tipo de arquivo que suporta códigos em R, texto, markdown e outros formatos.
+
+* Apresenta os seus códigos, o resultado, e também os seus comentários.
+
+* Arquivos **.Rmd** são reprodutíveis.
+
+* São interessantes para trabalhar em equipe, para comunicar seus resultados, e para desenvolver seus códigos em R.
+
 * O markdown é uma linguagem de marcação simples. 
 
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
@@ -127,14 +142,9 @@ background-size: cover
 ---
 class: inverse, center, middle
 
-&lt;iframe src="https://giphy.com/embed/5WILqPq29TyIkVCSej" width="480" height="342" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;&lt;/p&gt;
-
----
-class: inverse, center, middle
-
 # Inicie o RSTUDIO:
 &lt;center&gt;
-&lt;img src="imagens/0.png" style="width: 100%"&gt;
+&lt;img src="imagens/0.PNG" style="width: 100%"&gt;
 &lt;/center&gt;
 - Instale os pacotes:
 
@@ -149,7 +159,7 @@ class: inverse, center, middle
 
 # Crie um novo arquivo Rmarkdown:
 &lt;center&gt;
-&lt;img src="imagens/1.png" style="width: 100%"&gt;
+&lt;img src="imagens/1.PNG" style="width: 100%"&gt;
 &lt;/center&gt;
 
 ---
@@ -157,7 +167,7 @@ class: inverse, center, middle
 
 # Selecione o template Ninja Presentation:
 &lt;center&gt;
-&lt;img src="imagens/2.png" style="width: 100%"&gt;
+&lt;img src="imagens/2.PNG" style="width: 100%"&gt;
 &lt;/center&gt;
 
 ---
@@ -165,7 +175,7 @@ class: inverse, center, middle
 
 # Será criado um RMarkdown com o Ninja Presentation:
 &lt;center&gt;
-&lt;img src="imagens/3.png" style="width: 100%"&gt;
+&lt;img src="imagens/3.PNG" style="width: 100%"&gt;
 &lt;/center&gt;
 
 ---
@@ -173,13 +183,14 @@ class: inverse, middle
 
 # yaml - metadados do documento:
 &lt;center&gt;
-&lt;img src="imagens/4.png" style="width: 100%"&gt;
+&lt;img src="imagens/4.PNG" style="width: 100%"&gt;
 &lt;/center&gt;
 - title: título
 - subtitle: subtítulo
 - author: autor
 - date: data
 - output: formato (Ex: html_document, pdf_document, etc). No caso do Xaringan, o output é **xaringan::moon_reader**  
+- Cuidado com a **identação**
 
 
 Leia também: [Output Formats - R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/output-formats.html)
@@ -221,7 +232,7 @@ class: inverse, center, middle
 
 # Exemplo do yaml:
 &lt;center&gt;
-&lt;img src="imagens/5.png" style="width: 100%"&gt;
+&lt;img src="imagens/5.PNG" style="width: 100%"&gt;
 &lt;/center&gt;
 
 - Aperte o Knit e...
@@ -230,8 +241,8 @@ class: inverse, center, middle
 
 # Resultado:
 &lt;center&gt;
-&lt;img src="imagens/6.png" style="width: 45%"&gt;
-&lt;img src="imagens/7.png" style="width: 45%"&gt;
+&lt;img src="imagens/6.PNG" style="width: 45%"&gt;
+&lt;img src="imagens/7.PNG" style="width: 45%"&gt;
 &lt;/center&gt;
 
 - O knit exportará um arquivo do tipo html.
@@ -256,6 +267,7 @@ class: inverse, center, middle
 # Markdown
 * O markdown é uma linguagem de marcação simples. 
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+* Elaborada para ser fácil de ler, fácil de escrever.
 
 
 ---
@@ -278,7 +290,7 @@ class: inverse, center, middle
 - **Inserir imagens**
 
 ```r
-![](imagens/Rlogo.png)
+[Logo do R](imagens/Rlogo.png)
 ```
 ![](imagens/Rlogo.png)
 
@@ -312,10 +324,30 @@ Riscado: ~~colocar o texto entre dois tis~~
 
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
 ---
+- **Adicionar campos de código**
+
+```r
+ `escreva um código aqui`
+```
+
+`escreva um código aqui`
+
+- *Fórmulas**
+
+
+```r
+$A = \pi*r^{2}$
+```
+
+`\(A = \pi*r^{2}\)`
+
+---
 class: inverse, center, middle
 
 
 #Elaborando a apresentação
+
+## E explorando a cheatsheet
 ---
 class: inverse, center, middle
 # Quebra de slides
@@ -331,9 +363,31 @@ class: inverse, center, middle
 
 #Adicionando campos de código - chunks
 &lt;center&gt;
-&lt;img src="imagens/8.png" style="width: 100%"&gt;
+&lt;img src="imagens/8.PNG" style="width: 100%"&gt;
 &lt;/center&gt;
 - Aceita código em R, Python, SQL.
+---
+# Campos de código - chunks
+
+- Crie um chunk para cada tarefa que for executar no R.
+
+- O chunk tem várias opções interessantes referentes ao documento gerado:
+
+    - `eval = FALSE` - Apresenta o código mas não "roda" ele. É útil para quando queremos apenas mostrar o código.
+    
+    - `include = FALSE`- "roda" o código, porém não mostra o código e nem o resultado no documento final. Ex: `library(tidyverse)` em apresentações que não apresentam os códigos.
+    
+    - `echo = FALSE` - não apresenta o código, mas apresenta o resultado. 
+    
+    - `message = FALSE` e `warning = FALSE` - não mostra as mensagens de erro e warning no arquivo gerado.
+
+Consulta: [KnitR Options](https://yihui.name/knitr/options/)
+
+Dica: Atalho para criar chunk: `Ctrl + ALt + I`.
+
+
+
+
 ---
 
 class: inverse, center, middle
@@ -341,8 +395,10 @@ class: inverse, center, middle
 #Adicionando campos de código - chunks
 ** Exemplo: Adicionar um gráfico**
 &lt;center&gt;
-&lt;img src="imagens/9.png" style="width: 100%"&gt;
+&lt;img src="imagens/9.PNG" style="width: 100%"&gt;
 &lt;/center&gt;
+
+Dica de atalho: Ctrl-Shift-Enter - O Rstudio executa o código e disponibiliza os resultados abaixo do código.
 ---
 ** Exemplo: Adicionar um gráfico**
 
@@ -352,7 +408,7 @@ plot(wt, mpg, main="Scatterplot Example",
 xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
 ```
 
-![](apresentacao_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](apresentacao_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -381,16 +437,31 @@ DT::datatable(head(mtcars, 10),
   fillContainer = FALSE, options = list(pageLength = 5))
 ```
 
-<div id="htmlwidget-6c57bff733f9f1d34781" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6c57bff733f9f1d34781">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-76e0c1e9a50ab20ce11d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-76e0c1e9a50ab20ce11d">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+---
+# Exercício
+
+1. Crie um arquivo Rmarkdown do tipo *presentation ninja*;
+1. Aplique o estilo R-ladies;
+1. Altere dados de autor, dê um título para o slide.
+1. Usando a cheatsheet, use sua imaginação: adicione títulos, textos, imagens, links, etc.
+1. Usando os chunks (campos de código), teste como ele funciona, e 
+
+- ** A melhor forma de aprender é ir testando!**
+
+
 
 ---
 # Partilhando a apresentação na internet
 
+- O formato que utilizamos para exportar uma apresentação elaborada com o xaringan é **.html**. 
 
 ---
 # Referências
 
+* [R for Data Science - Hadley Wickham &amp; Garret Grolemund](https://r4ds.had.co.nz/) - Gratuito, em inglês.
 * **Xaringan**
     + [Xaringan no Github](https://github.com/yihui/xaringan)
     + [Documentação](https://slides.yihui.name/xaringan/)
@@ -412,6 +483,8 @@ class: inverse, center, middle
 
 # Obrigada!
 Apresentação elaborada com [Xaringan](https://github.com/yihui/xaringan) e [Kunoichi](https://github.com/emitanaka/ninja-theme)
+
+&lt;/script&gt;
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

@@ -1,5 +1,5 @@
 ---
-title: "Comunicando seus resultados: criando apresentações com R"
+title: "Comunicando seus resultados: criando apresentações com R."
 subtitle: "Meetup R-Ladies SP"
 author: "Beatriz Milz"
 date: "21/11/2018 (Atualizado em: `r Sys.Date()`)"
@@ -12,7 +12,6 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-
 class: split-two with-border
 .column.bg-main1[.content[
   # Sobre mim
@@ -34,7 +33,7 @@ class: split-two with-border
 
 
 ]]
-<script src="remark-latest.min.js">
+
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -55,7 +54,7 @@ class: inverse, middle
 <br>
 
 <center>
-<img src="imagens/data-science.png">
+<img src="imagens/data-science.PNG">
 </center>
 
 
@@ -121,7 +120,12 @@ background-size: cover
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
 * Possibilita exportar diferentes tipos de arquivos.
 <br>
-<center><img src="imagens/markdown.png" style="width: 50%"></center>
+<center><img src="imagens/markdown.PNG" style="width: 50%"></center>
+
+---
+class: inverse, center, middle
+
+<iframe src="https://giphy.com/embed/5WILqPq29TyIkVCSej" width="480" height="342" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></p>
 
 ---
 class: inverse, center, middle
@@ -175,7 +179,6 @@ class: inverse, middle
 - author: autor
 - date: data
 - output: formato (Ex: html_document, pdf_document, etc). No caso do Xaringan, o output é **xaringan::moon_reader**  
-- Cuidado com a **identação**
 
 
 Leia também: [Output Formats - R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/output-formats.html)
@@ -238,7 +241,6 @@ class: inverse, center, middle
 # Markdown
 * O markdown é uma linguagem de marcação simples. 
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
-* Elaborada para ser fácil de ler, fácil de escrever.
 
 
 ---
@@ -261,7 +263,7 @@ class: inverse, center, middle
 - **Inserir imagens**
 ```{r eval=FALSE, include=TRUE}
 
-[Logo do R](imagens/Rlogo.png)
+![](imagens/Rlogo.PNG)
 
 ```
 ![](imagens/Rlogo.png)
@@ -279,9 +281,9 @@ Riscado: ~~colocar o texto entre dois tis ~~
 ```
 
 Itálico: *colocar o texto entre astericos*.
-
+--
 Negrito: **colocar o texto entre dois asteriscos**.
-
+--
 Riscado: ~~colocar o texto entre dois tis~~
 
 - **Criar links**
@@ -294,29 +296,10 @@ Riscado: ~~colocar o texto entre dois tis~~
 
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
 ---
-- **Adicionar campos de código**
-```{r eval=FALSE, include=TRUE}
- `escreva um código aqui`
-```
-
-`escreva um código aqui`
-
-- *Fórmulas**
-
-```{r eval=FALSE, include=TRUE}
-
-$A = \pi*r^{2}$
-```
-
-$A = \pi*r^{2}$
-
----
 class: inverse, center, middle
 
 
 #Elaborando a apresentação
-
-## E explorando a cheatsheet
 ---
 class: inverse, center, middle
 # Quebra de slides
@@ -336,30 +319,6 @@ class: inverse, center, middle
 <img src="imagens/8.PNG" style="width: 100%">
 </center>
 - Aceita código em R, Python, SQL.
-
-Dica: Atalho para criar chunk: `Ctrl + ALt + I`.
----
-# Campos de código - chunks
-
-- Crie um chunk para cada tarefa que for executar no R.
-
-- O chunk tem várias opções interessantes referentes ao documento gerado:
-
-    - `eval = FALSE` - Apresenta o código mas não "roda" ele. É útil para quando queremos apenas mostrar o código.
-    
-    - `include = FALSE`- "roda" o código, porém não mostra o código e nem o resultado no documento final. Ex: `library(tidyverse)` em apresentações que não apresentam os códigos.
-    
-    - `echo = FALSE` - não apresenta o código, mas apresenta o resultado. 
-    
-    - `message = FALSE` e `warning = FALSE` - não mostra as mensagens de erro e warning no arquivo gerado.
-
-Consulta: [KnitR Options](https://yihui.name/knitr/options/)
-
-
-
-
-
-
 ---
 
 class: inverse, center, middle
@@ -370,7 +329,7 @@ class: inverse, center, middle
 <img src="imagens/9.PNG" style="width: 100%">
 </center>
 
-Dica de atalho: Ctrl-Shift-Enter - O Rstudio executa o código e disponibiliza os resultados abaixo do código.
+Dica de atalho: Cmd/Ctrl-Shift-Enter - O Rstudio executa o código e disponibiliza os resultados abaixo do código.
 ---
 ** Exemplo: Adicionar um gráfico**
 ```{r}
@@ -393,19 +352,6 @@ head(mtcars)
 DT::datatable(head(mtcars, 10),
   fillContainer = FALSE, options = list(pageLength = 5))
 ```
-
----
-# Exercício
-
-1. Crie um arquivo Rmarkdown do tipo *presentation ninja*;
-1. Aplique o estilo R-ladies;
-1. Altere dados de autor, dê um título para o slide.
-1. Usando a cheatsheet, use sua imaginação: adicione títulos, textos, imagens, links, etc.
-1. Usando os chunks (campos de código), teste como ele funciona, e 
-
-- ** A melhor forma de aprender é ir testando!**
-
-
 
 ---
 # Partilhando a apresentação na internet
@@ -438,4 +384,4 @@ class: inverse, center, middle
 # Obrigada!
 Apresentação elaborada com [Xaringan](https://github.com/yihui/xaringan) e [Kunoichi](https://github.com/emitanaka/ninja-theme)
 
-</script>
+
