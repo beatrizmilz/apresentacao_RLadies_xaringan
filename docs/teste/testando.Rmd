@@ -1,0 +1,34 @@
+---
+title: "Meet up R ladies"
+subtitle: "testando o xaringan"
+author: "bia"
+date: "28/10/2018"
+output:
+  xaringan::moon_reader:
+    css: ["rladies", "rladies-fonts"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+Hello world!
+
+
+
+```{r}
+attach(mtcars)
+plot(wt, mpg, main="Scatterplot Example",
+xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
+```
+Selecionar a pasta
+$ C:/Users/beatr/Documents/GitHub
+
+
+
+
+git checkout -b my-branch

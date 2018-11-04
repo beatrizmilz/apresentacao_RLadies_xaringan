@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Criando apresentações com R e Xaringan</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Beatriz Milz" />
+    <link href="libs/remark-css/kunoichi.css" rel="stylesheet" />
+    <link href="libs/remark-css/ninjutsu.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding/datatables.js"></script>
+    <link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Criando apresentações com R e Xaringan
+## Meetup R-Ladies SP
+### Beatriz Milz
+### 28/10/2018 (Atualizado em: 2018-10-28)
+
+---
+
+class: split-two with-border
+.column.bg-main1[.content[
+  # Sobre mim
+&lt;center&gt;  &lt;img src="imagens/foto.jpg" width="500px"/&gt;&lt;/center&gt;
+]]
+.column.bg-main2[.content[
+  - Beatriz Milz, 25 anos, Diadema.&lt;br&gt;&lt;br&gt;
+- Bacharel em Gestão Ambiental (EACH/USP). &lt;br&gt;&lt;br&gt;
+- Mestre em Ciências no PPG-Análise Ambiental Integrada (UNIFESP/Diadema). &lt;br&gt;&lt;br&gt;
+- Atualmente candidata ao Doutorado em Ciência Ambiental no PROCAM/IEE/USP. &lt;br&gt;&lt;br&gt;
+- Aprendendo R desde agosto de 2018.&lt;br&gt;&lt;br&gt;
+- Participa da comunidade R-Ladies São Paulo desde agosto de 2018.&lt;br&gt;&lt;br&gt;
+
+- Email:&lt;a href="mailto:beatriz.milz@hotmail.com"&gt;&lt;i class="fas fa-envelope-square"&gt;&lt;/i&gt;&amp;nbsp; beatriz.milz@hotmail.com&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+
+- Github:&lt;a href="http://github.com/beatrizmilz"&gt;&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp; @beatrizmilz&lt;/a&gt; (repositório de código)&lt;br&gt;&lt;br&gt;
+
+- Twitter: @BeaMilz
+
+
+]]
+
+
+
+
+---
+class: inverse, middle
+
+# Por que apresentações são importantes? 
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="imagens/data-science.png"&gt;
+&lt;/center&gt;
+
+
+Fonte: http://r4ds.had.co.nz/
+
+- Uma das formas de comunicar os resultados!
+
+
+- Hoje iremos praticar como criar uma apresentação utilizando o R e o pacote Xaringan. 
+
+
+---
+class: inverse, middle
+
+# Pré-requisitos:
+- [R](https://www.r-project.org/)
+- [RStudio](https://www.rstudio.com/)
+- Pacote[Rmarkdown](https://rmarkdown.rstudio.com/)
+- Pacote [Xaringan](https://github.com/yihui/xaringan)
+- Pacote [knitr](http://yihui.name/knitr/)
+
+---
+# Instalar o Xaringan
+- Existem duas formas de instalar:
+
+CRAN:
+
+```r
+install.packages("xaringan")
+```
+
+
+Github:
+
+```r
+devtools::install_github("yihui/xaringan")
+```
+
+
+---
+
+
+class: split-70 hide-slide-number
+background-image: url("")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[RMarkdown]]]
+.column[
+]
+---
+
+## Rmarkdown
+* É um tipo de arquivo que suporta códigos em R, texto, markdown e outros formatos.
+* O markdown é uma linguagem de marcação simples. 
+
+* [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+* Possibilita exportar diferentes tipos de arquivos.
+&lt;br&gt;
+&lt;center&gt;&lt;img src="imagens/markdown.png" style="width: 50%"&gt;&lt;/center&gt;
+
+---
+class: inverse, center, middle
+
+&lt;iframe src="https://giphy.com/embed/5WILqPq29TyIkVCSej" width="480" height="342" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+---
+class: inverse, center, middle
+
+# Inicie o RSTUDIO:
+&lt;center&gt;
+&lt;img src="imagens/0.png" style="width: 100%"&gt;
+&lt;/center&gt;
+- Instale os pacotes:
+
+```r
+install.packages("rmarkdown")
+install.packages("knitr")
+install.packages("xaringan")
+```
+
+---
+class: inverse, center, middle
+
+# Crie um novo arquivo Rmarkdown:
+&lt;center&gt;
+&lt;img src="imagens/1.png" style="width: 100%"&gt;
+&lt;/center&gt;
+
+---
+class: inverse, center, middle
+
+# Selecione o template Ninja Presentation:
+&lt;center&gt;
+&lt;img src="imagens/2.png" style="width: 100%"&gt;
+&lt;/center&gt;
+
+---
+class: inverse, center, middle
+
+# Será criado um RMarkdown com o Ninja Presentation:
+&lt;center&gt;
+&lt;img src="imagens/3.png" style="width: 100%"&gt;
+&lt;/center&gt;
+
+---
+class: inverse, middle
+
+# yaml - metadados do documento:
+&lt;center&gt;
+&lt;img src="imagens/4.png" style="width: 100%"&gt;
+&lt;/center&gt;
+- title: título
+- subtitle: subtítulo
+- author: autor
+- date: data
+- output: formato (Ex: html_document, pdf_document, etc). No caso do Xaringan, o output é **xaringan::moon_reader**  
+
+
+Leia também: [Output Formats - R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/output-formats.html)
+
+---
+class: inverse, middle
+
+
+
+# Quais são os temas disponíveis?
+
+
+```r
+names(xaringan:::list_css())
+```
+
+```
+##  [1] "chocolate-fonts"  "chocolate"        "default-fonts"   
+##  [4] "default"          "duke-blue"        "hygge-duke"      
+##  [7] "hygge"            "kunoichi"         "lucy-fonts"      
+## [10] "lucy"             "metropolis-fonts" "metropolis"      
+## [13] "middlebury-fonts" "middlebury"       "ninjutsu"        
+## [16] "rladies-fonts"    "rladies"          "robot-fonts"     
+## [19] "robot"            "rutgers-fonts"    "rutgers"         
+## [22] "shinobi"          "tamu-fonts"       "tamu"            
+## [25] "uo-fonts"         "uo"
+```
+
+# Colocar o tema RLadies
+
+```r
+output:
+  xaringan::moon_reader:
+    css: ["rladies", "rladies-fonts"]
+```
+
+---
+class: inverse, center, middle
+
+# Exemplo do yaml:
+&lt;center&gt;
+&lt;img src="imagens/5.png" style="width: 100%"&gt;
+&lt;/center&gt;
+
+- Aperte o Knit e...
+---
+class: inverse, center, middle
+
+# Resultado:
+&lt;center&gt;
+&lt;img src="imagens/6.png" style="width: 45%"&gt;
+&lt;img src="imagens/7.png" style="width: 45%"&gt;
+&lt;/center&gt;
+
+- O knit exportará um arquivo do tipo html.
+- Agora o tema da apresentação está configurado!
+
+---
+
+
+class: split-70 hide-slide-number
+background-image: url("")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Markdown]]]
+.column[
+]
+
+---
+class: inverse, center, middle
+
+# Markdown
+* O markdown é uma linguagem de marcação simples. 
+* [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+
+
+---
+#Sintaxe Markdown
+**Adicionar títulos**
+
+
+```r
+# Título 1
+## Título 2
+### Título 3
+```
+# Título 1
+## Título 2
+### Título 3
+
+
+* [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+---
+- **Inserir imagens**
+
+```r
+![](imagens/Rlogo.png)
+```
+![](imagens/Rlogo.png)
+
+
+* [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+---
+- **Formatar textos**
+
+```r
+Negrito: **colocar o texto entre dois asteriscos**.
+
+Itálico: *colocar o texto entre astericos*.
+
+Riscado: ~~colocar o texto entre dois tis ~~
+```
+
+Itálico: *colocar o texto entre astericos*.
+
+Negrito: **colocar o texto entre dois asteriscos**.
+
+Riscado: ~~colocar o texto entre dois tis~~
+
+- **Criar links**
+
+
+```r
+[R](https://www.r-project.org/)
+```
+
+[R](https://www.r-project.org/)
+
+* [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+---
+class: inverse, center, middle
+
+
+#Elaborando a apresentação
+---
+class: inverse, center, middle
+# Quebra de slides
+
+```r
+---
+```
+
+
+---
+
+class: inverse, center, middle
+
+#Adicionando campos de código - chunks
+&lt;center&gt;
+&lt;img src="imagens/8.png" style="width: 100%"&gt;
+&lt;/center&gt;
+- Aceita código em R, Python, SQL.
+---
+
+class: inverse, center, middle
+
+#Adicionando campos de código - chunks
+** Exemplo: Adicionar um gráfico**
+&lt;center&gt;
+&lt;img src="imagens/9.png" style="width: 100%"&gt;
+&lt;/center&gt;
+---
+** Exemplo: Adicionar um gráfico**
+
+```r
+attach(mtcars)
+plot(wt, mpg, main="Scatterplot Example",
+xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
+```
+
+![](apresentacao_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+
+---
+** Exemplo: Adicionar uma tabela**
+
+```r
+head(mtcars)
+```
+
+```
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+```
+
+
+---
+** Exemplo: Adicionar uma tabela**
+
+```r
+DT::datatable(head(mtcars, 10),
+  fillContainer = FALSE, options = list(pageLength = 5))
+```
+
+<div id="htmlwidget-6c57bff733f9f1d34781" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6c57bff733f9f1d34781">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+---
+# Partilhando a apresentação na internet
+
+
+---
+# Referências
+
+* **Xaringan**
+    + [Xaringan no Github](https://github.com/yihui/xaringan)
+    + [Documentação](https://slides.yihui.name/xaringan/)
+* **Themes**:
+* Rladies
+* Kunoichi:
+    + [Documentação Kunoichi](https://emitanaka.github.io/ninja-theme/themes/kunoichi/kunoichi-theme-example.html)
+    + [Kunoichi no Github](https://github.com/emitanaka/ninja-theme)
+    + Thanks [Emi Tanaka](https://twitter.com/statsgen)!
+
+
+- Material de estudo:
+    + [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+
+
+---
+class: inverse, center, middle
+
+
+# Obrigada!
+Apresentação elaborada com [Xaringan](https://github.com/yihui/xaringan) e [Kunoichi](https://github.com/emitanaka/ninja-theme)
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
