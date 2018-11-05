@@ -137,7 +137,7 @@ h3 { font-size: 1.6em; }
 h4 { font-size: 1em; }
 
 body{
-  font-size: 2em;
+  font-size: 1em;
 }
 
 a { color: var(--link-color); text-decoration: none; }

@@ -4,18 +4,18 @@
     <title>Comunicando seus resultados: criando apresentações com R</title>
     <meta charset="utf-8">
     <meta name="author" content="Beatriz Milz" />
-    <link href="libs/remark-css/kunoichi.css" rel="stylesheet" />
-    <link href="libs/remark-css/ninjutsu.css" rel="stylesheet" />
-    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
-    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
-    <script src="libs/jquery/jquery.min.js"></script>
-    <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-    <script src="libs/datatables-binding/datatables.js"></script>
-    <link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-    <script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/remark-css-0.0.1/kunoichi.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/rladies-fonts.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+    <script src="libs/jquery-1.12.4/jquery.min.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.4/datatables.js"></script>
+    <link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
   </head>
   <body>
     <textarea id="source">
@@ -24,7 +24,7 @@ class: center, middle, inverse, title-slide
 # Comunicando seus resultados: criando apresentações com R
 ## Meetup R-Ladies SP
 ### Beatriz Milz
-### 21/11/2018 (Atualizado em: 2018-11-04)
+### 21/11/2018 (Atualizado em: 2018-11-05)
 
 ---
 
@@ -50,7 +50,7 @@ class: split-two with-border
 
 
 ]]
-&lt;script src="remark-latest.min.js"&gt;
+
 
 
 ---
@@ -91,6 +91,20 @@ class: inverse, middle
 - Pacote [Xaringan](https://github.com/yihui/xaringan) 
 - Pacote [knitr](http://yihui.name/knitr/)
 
+---
+#Introdução sobre o Xaringan
+
+- O xaringan é um pacote do R para criar apresentações usando o  [remark.js](http://remarkjs.com) através do Rmarkdown.
+
+&lt;center&gt;&lt;img src="imagens/xaringan.PNG" style="width: 25%"&gt;&lt;/center&gt;
+
+
+- Mais sobre o xaringan:
+
+    - [Apresentação da documentação](http://slides.yihui.name/xaringan/) 
+    - [Livro R Markdown (Capítulo 7)](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+    - [Remark.js Wiki](https://github.com/gnab/remark/wiki)
+    - [Xaringan Wiki](https://github.com/yihui/xaringan/wiki)
 ---
 # Instalar o Xaringan
 - Existem duas formas de instalar:
@@ -185,6 +199,8 @@ class: inverse, center, middle
 class: inverse, middle
 
 # yaml - metadados do documento:
+- **y**et **a**nother **m**arkup **l**anguage 
+- Controla muitas das configurações do documento no yaml.
 &lt;center&gt;
 &lt;img src="imagens/4.PNG" style="width: 100%"&gt;
 &lt;/center&gt;
@@ -222,6 +238,8 @@ names(xaringan:::list_css())
 ## [25] "uo-fonts"         "uo"
 ```
 
+Alguns exemplos de disponíveis: [xaringan themes](https://github.com/yihui/xaringan/wiki/Themes)
+
 # Colocar o tema RLadies
 
 ```r
@@ -230,6 +248,7 @@ output:
     css: ["rladies", "rladies-fonts"]
 ```
 
+* Se você entende de CSS, é possível adaptar os temas e também criá-los :)
 ---
 class: inverse, center, middle
 
@@ -250,7 +269,15 @@ class: inverse, center, middle
 
 - O knit exportará um arquivo do tipo html.
 - Agora o tema da apresentação está configurado!
+- Aperte H ou ? para conferir a lista de atalhos do sharingan. 
+---
+# DEU ERRO NO KNITR!
 
+Calma! É bem comum dar erro ao compliar o arquivo pois **qualquer** código errado causa isso. Algumas coisas pra se observar:
+
+- Yaml header - se algo estiver errado, vai dar erro ao compilar. Muito cuidado com a identação!
+
+- Código nos chunks - teste o Run All Chunks e ver se dá erro em algum específico. Se descobrir, tente verificar o que há de errado no código (pode ser a falta de um parênteses, vírgula, entre outros).
 ---
 
 
@@ -345,6 +372,8 @@ $A = \pi*r^{2}$
 `\(A = \pi*r^{2}\)`
 
 ---
+background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
+---
 class: inverse, center, middle
 
 
@@ -385,13 +414,10 @@ Dica: Atalho para criar chunk: `Ctrl + ALt + I`.
     - `echo = FALSE` - não apresenta o código, mas apresenta o resultado. 
     
     - `message = FALSE` e `warning = FALSE` - não mostra as mensagens de erro e warning no arquivo gerado.
+    
+    - `cache = TRUE` - mantém uma cópia do resultado do seu código no computador. É prático para usar quando o código 
 
 Consulta: [KnitR Options](https://yihui.name/knitr/options/)
-
-
-
-
-
 
 ---
 
@@ -404,6 +430,24 @@ class: inverse, center, middle
 &lt;/center&gt;
 
 Dica de atalho: Ctrl-Shift-Enter - O Rstudio executa o código e disponibiliza os resultados abaixo do código.
+
+---
+#Adicionando código R fora do chunk 
+
+```r
+`r `
+```
+
+Exemplo:
+
+```r
+# O banco de dados mtcars possui `r nrow(mtcars)` carros cadastrados. 
+```
+
+Exemplo: O banco de dados mtcars possui 32 carros cadastrados. 
+
+* Útil para relatórios!
+
 ---
 ** Exemplo: Adicionar um gráfico**
 
@@ -413,7 +457,7 @@ plot(wt, mpg, main="Scatterplot Example",
 xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
 ```
 
-![](apresentacao_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -443,8 +487,8 @@ DT::datatable(head(mtcars, 10),
   fillContainer = FALSE, options = list(pageLength = 5))
 ```
 
-<div id="htmlwidget-5610a9212e0f9182d412" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5610a9212e0f9182d412">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a23fab25b732da70fd10" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a23fab25b732da70fd10">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 # Exercício
@@ -453,16 +497,18 @@ DT::datatable(head(mtcars, 10),
 1. Aplique o estilo R-ladies;
 1. Altere dados de autor, dê um título para o slide.
 1. Usando a cheatsheet, use sua imaginação: adicione títulos, textos, imagens, links, etc.
-1. Usando os chunks (campos de código), teste como ele funciona, e 
+1. Usando os chunks (campos de código), teste como ele funciona, e use algum código nele (gráfico, tabela, função, etc).
+1. Exporte a apresentação usando o Knitr.
+1. Abra o arquivo da sua apresentação em um navegador.
+1. Aprecie sua apresentação feita no R :D
 
 - ** A melhor forma de aprender é ir testando!**
 
-
-
 ---
-# Partilhando a apresentação na internet
 
-- O formato que utilizamos para exportar uma apresentação elaborada com o xaringan é **.html**. 
+#Partilhando a apresentação na internet
+
+O formato que utilizamos para exportar uma apresentação elaborada com o xaringan é **.html**.
 
 ---
 # Referências
@@ -490,7 +536,7 @@ class: inverse, center, middle
 # Obrigada!
 Apresentação elaborada com [Xaringan](https://github.com/yihui/xaringan) e [Kunoichi](https://github.com/emitanaka/ninja-theme)
 
-&lt;/script&gt;
+&lt;script src="remark-latest.min.js"&gt;
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

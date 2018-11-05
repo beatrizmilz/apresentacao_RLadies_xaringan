@@ -1,0 +1,34 @@
+---
+title: "Untitled"
+output: html_document
+---
+# Exportando em PDF 
+## Forma menos fácil
+- É necessário o pacote webshot: 
+```{r eval=FALSE, include=TRUE}
+# install.packages("webshot") 
+
+library(webshot)
+```
+- Utilize a função instaall_phantonjs() . Apenas precisa na primeira vez que for usar o pacote Webshot. 
+```{r eval=FALSE, include=TRUE}
+#install_phantomjs() 
+```
+Ele irá gerar um pdf a partir do seu arquivo compilado em html: 
+```{r eval=FALSE, include=TRUE}
+apresentacao <- paste0("file://", normalizePath("index.html"))
+webshot(apresentacao, "apresentacao.pdf")
+```
+
+## Forma mais fácil
+Usando o navegador, imprima para arquivo (Ctrl + P). Não dá certo com o Mozzila Firefox :(. 
+* https://github.com/yihui/xaringan/wiki/Export-Slides-to-PDF
+---
+# Partilhando a apresentação na internet
+
+- O formato que utilizamos para exportar uma apresentação elaborada com o xaringan é **.html**. 
+
+---
+# Converter .pptx em .rmd
+
+https://github.com/yihui/xaringan/wiki/Importing-from-Microsoft-PowerPoint
