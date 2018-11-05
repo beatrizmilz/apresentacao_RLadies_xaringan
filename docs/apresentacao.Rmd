@@ -119,6 +119,9 @@ background-size: cover
 * O markdown é uma linguagem de marcação simples. 
 
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+
+---
+## Rmarkdown
 * Possibilita exportar diferentes tipos de arquivos.
 <br>
 <center><img src="imagens/markdown.png" style="width: 50%"></center>
@@ -259,9 +262,9 @@ class: inverse, center, middle
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
 ---
 - **Inserir imagens**
-```{r eval=FALSE, include=TRUE}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
 
-[Logo do R](imagens/Rlogo.png)
+#    ![Logo do R](imagens/Rlogo.png)
 
 ```
 ![](imagens/Rlogo.png)
@@ -352,6 +355,8 @@ Dica: Atalho para criar chunk: `Ctrl + ALt + I`.
     - `echo = FALSE` - não apresenta o código, mas apresenta o resultado. 
     
     - `message = FALSE` e `warning = FALSE` - não mostra as mensagens de erro e warning no arquivo gerado.
+    
+    - `cache = TRUE` - mantém uma cópia do resultado do seu código no computador. É prático para usar quando o código 
 
 Consulta: [KnitR Options](https://yihui.name/knitr/options/)
 
@@ -382,6 +387,7 @@ xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
 
 ---
 ** Exemplo: Adicionar uma tabela**
+
 ```{r}
 head(mtcars)
 ```
