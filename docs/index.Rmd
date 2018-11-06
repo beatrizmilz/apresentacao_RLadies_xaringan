@@ -5,7 +5,7 @@ author: "Beatriz Milz"
 date: "21/11/2018 (Atualizado em: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
-    yolo: true
+    yolo: false
     css: ["kunoichi", "ninjutsu","rladies-fonts"]
     lib_dir: libs
     nature:
@@ -29,23 +29,26 @@ class: split-two with-border
 
 - Email:<a href="mailto:beatriz.milz@hotmail.com"><i class="fas fa-envelope-square"></i>&nbsp; beatriz.milz@hotmail.com</a><br><br>
 
+- Página: https://beatrizmilz.github.io/
+
+
 - Github:<a href="http://github.com/beatrizmilz"><i class="fab fa-github"></i>&nbsp; @beatrizmilz</a> (repositório de código)<br><br>
 
 - Twitter: @BeaMilz
-
 
 ]]
 
 
 
 ---
+class: inverse, center, middle
 # Comunicando seus resultados: criando apresentações com R
 
-- Introdução sobre a linguagem de marcação markdown e sobre arquivos do tipo RMarkdown.
+1) Introdução sobre a linguagem de marcação markdown e sobre arquivos do tipo RMarkdown.
 
-- Prática sobre como criar uma apresentação utilizando o pacote Xaringan. 
+2) Prática sobre como criar uma apresentação utilizando o pacote Xaringan. 
 
-- Hospedagem da apresentação utilizando o Github Pages.
+3) Hospedagem da apresentação utilizando o Github Pages.
 ---
 class: inverse, middle
 
@@ -171,6 +174,8 @@ class: inverse, center, middle
 <img src="imagens/2.PNG" style="width: 100%">
 </center>
 
+* Dica: para facilitar posteriormente, crie a sua apresentação com o nome de `index.Rmd`.
+
 ---
 class: inverse, center, middle
 
@@ -184,7 +189,7 @@ class: inverse, middle
 
 # yaml - metadados do documento:
 - **y**et **a**nother **m**arkup **l**anguage 
-- Controla muitas das configurações do documento no yaml.
+- Controla muitas das configurações do documento.
 <center>
 <img src="imagens/4.PNG" style="width: 100%">
 </center>
@@ -210,14 +215,15 @@ names(xaringan:::list_css())
 ```
 
 Alguns exemplos de disponíveis: [xaringan themes](https://github.com/yihui/xaringan/wiki/Themes)
-
+---
+class: inverse, middle
 # Colocar o tema RLadies
 ```{r  eval=FALSE, include=TRUE}
 output:
   xaringan::moon_reader:
     css: ["rladies", "rladies-fonts"]
 ```
-
+- Criado por/Made by: [ALison Presmanes Hill](https://alison.rbind.io/post/r-ladies-slides/)
 * Se você entende de CSS, é possível adaptar os temas e também criá-los :)
 ---
 class: inverse, center, middle
@@ -450,13 +456,97 @@ DT::datatable(head(mtcars, 10),
 1. Aprecie sua apresentação feita no R :D
 
 - ** A melhor forma de aprender é ir testando!**
-
 ---
 
-#Partilhando a apresentação na internet
+# Compartilhando a apresentação 
 
-- O formato que utilizamos para exportar uma apresentação elaborada com o xaringan é **.html**.
-- É possível hospedar o seu arquivo de apresentação em sites como o [Github](https://github.com/) e [Netlify](https://www.netlify.com/).
+## Salvar em PDF 
+Usando o navegador Chrome, imprima para arquivo (Ctrl + P). Não dá certo com o Mozzila Firefox :(. 
+* https://github.com/yihui/xaringan/wiki/Export-Slides-to-PDF
+
+## Salvar em HTML
+- O formato que utilizamos para exportar uma apresentação elaborada com o xaringan é **.html**. Para isso, é necessário apertar o botão Knit (mostrado anteriormente).
+- É possível hospedar o seu arquivo de apresentação em sites como o [Github Pages](https://github.com/) e [Netlify](https://www.netlify.com/).
+---
+# Compartilhando a apresentação via Github Pages
+
+1) Crie uma conta gratuita no github: https://github.com/
+
+2) Na sua conta do github, crie um novo repositório (New repository)
+
+<center>
+<img src="imagens/github1.jpg" style="width: 50%">
+</center>
+
+* OBS: [Esse post do @w_oliveiras](https://medium.com/trainingcenter/plano-para-estudar-git-e-github-enquanto-aprende-programa%C3%A7%C3%A3o-f5d5f986f459) é sobre como usar git e github e pode ajudar! 
+
+---
+# Compartilhando a apresentação via Github Pages
+3) Coloque um nome e descrição no novo repositório. Deixe como público. 
+
+<center>
+<img src="imagens/github2.jpg" style="width: 70%">
+</center>
+
+---
+# Compartilhando a apresentação via Github Pages
+4) Repositório criado! 
+
+<center>
+<img src="imagens/github3.jpg" style="width: 90%">
+</center>
+
+---
+# Compartilhando a apresentação via Github Pages
+5) Githubpages e pasta DOCS.
+
+- Para o github pages funcionar, você precisa adicionar o conteúdo em uma pasta chamada `docs`. Então, antes de fazer upload, no seu computador/workingdirectory/projeto, crie uma pasta com o nome `docs` e coloque todos os arquivos da sua apresentação nessa pasta.
+
+- De preferência, a sua apresentação deve se chamar index.html (após compilado).
+
+<center>
+<img src="imagens/pastadocs.jpg" style="width: 90%">
+</center>
+---
+# Compartilhando a apresentação via Github Pages
+- Área de upload do seu repositório do github (essa não é a única forma de realizar upload, também é possível através do github desktop e pelo terminal de comando).
+
+
+
+<center>
+<img src="imagens/github4.jpg" style="width: 90%">
+</center>
+
+---
+# Compartilhando a apresentação via Github Pages
+6) Faça o upload da pasta docs INTEIRA no seu repositório do github. 
+
+<center>
+<img src="imagens/github5.jpg" style="width: 90%">
+</center>
+
+---
+# Compartilhando a apresentação via Github Pages
+7) Coloque uma mensagem no commit, para deixar registrado que alteração foi feita.
+
+<center>
+<img src="imagens/github6.jpg" style="width: 90%">
+</center>
+---
+# Compartilhando a apresentação via Github Pages
+8) No seu repositório, clique em Settings...
+<center>
+<img src="imagens/github7.jpg" style="width: 90%">
+</center>
+---
+# Compartilhando a apresentação via Github Pages
+8) ... e na seção Github Pages, selecione **master brach /docs folder**:.
+<center>
+<img src="imagens/github8.jpg" style="width: 90%">
+</center>
+
+<center> <strong>Resultado</strong>: <a href="https://beatrizmilz.github.io/teste/">https://beatrizmilz.github.io/teste/</a> </center> 
+
 ---
 # Referências
 
@@ -465,20 +555,21 @@ DT::datatable(head(mtcars, 10),
     + [Xaringan no Github](https://github.com/yihui/xaringan)
     + [Documentação](https://slides.yihui.name/xaringan/)
 * **Themes**:
-* Rladies
+* Rladies:
+    + [ALison Presmanes Hill](https://alison.rbind.io/post/r-ladies-slides/)
 * Kunoichi:
     + [Documentação Kunoichi](https://emitanaka.github.io/ninja-theme/themes/kunoichi/kunoichi-theme-example.html)
     + [Kunoichi no Github](https://github.com/emitanaka/ninja-theme)
-    + Thanks [Emi Tanaka](https://twitter.com/statsgen)!
+    + [Emi Tanaka](https://twitter.com/statsgen)!
 
 
 - Material de estudo:
     + [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 
+- Thanks!
 
 ---
 class: inverse, center, middle
-
 
 # Obrigada!
 Apresentação elaborada com [Xaringan](https://github.com/yihui/xaringan) e [Kunoichi](https://github.com/emitanaka/ninja-theme)
