@@ -10,7 +10,7 @@
     <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
     <script src="libs/jquery-1.12.4/jquery.min.js"></script>
     <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-    <script src="libs/datatables-binding-0.4/datatables.js"></script>
+    <script src="libs/datatables-binding-0.5/datatables.js"></script>
     <link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
     <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
@@ -22,17 +22,18 @@
 class: center, middle, inverse, title-slide
 
 # Comunicando seus resultados: criando apresentações com R
-## Meetup R-Ladies SP
+## Meetup R-Ladies SP - N. 3
 ### Beatriz Milz
-### 21/11/2018 (Atualizado em: 2018-11-06)
+### 21/11/2018
 
 ---
+
 
 
 class: split-two with-border
 .column.bg-main1[.content[
   # Sobre mim
-&lt;center&gt;  &lt;img src="imagens/foto.jpg" width="500px"/&gt;&lt;/center&gt;
+&lt;center&gt;  &lt;img src="imagens/foto-coda.jpg" height="500px"/&gt;&lt;/center&gt;
 ]]
 .column.bg-main2[.content[
   - Beatriz Milz, 25 anos, Diadema.&lt;br&gt;&lt;br&gt;
@@ -64,6 +65,12 @@ class: inverse, center, middle
 2) Prática sobre como criar uma apresentação utilizando o pacote Xaringan. 
 
 3) Hospedagem da apresentação utilizando o Github Pages.
+
+&lt;img src="https://media.giphy.com/media/dNgK7Ws7y176U/giphy.gif" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+
+
 ---
 class: inverse, middle
 
@@ -284,8 +291,9 @@ Calma! É bem comum dar erro ao compliar o arquivo pois **qualquer** código err
 - Yaml header - se algo estiver errado, vai dar erro ao compilar. Muito cuidado com a identação!
 
 - Código nos chunks - teste o Run All Chunks e ver se dá erro em algum específico. Se descobrir, tente verificar o que há de errado no código (pode ser a falta de um parênteses, vírgula, entre outros).
----
 
+&lt;img src="https://media.giphy.com/media/j9GASQ5ocrIRicnmyq/giphy.gif" width="30%" style="display: block; margin: auto;" /&gt;
+---
 
 class: split-70 hide-slide-number
 background-image: url("")
@@ -297,13 +305,13 @@ background-size: cover
 .column[
 ]
 
----
-class: inverse, center, middle
 
 # Markdown
 * O markdown é uma linguagem de marcação simples. 
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
 * Elaborada para ser fácil de ler, fácil de escrever.
+
+
 
 
 ---
@@ -436,6 +444,23 @@ class: inverse, center, middle
 Dica de atalho: Ctrl-Shift-Enter - O Rstudio executa o código e disponibiliza os resultados abaixo do código.
 
 ---
+# Adicionando um chunk de configuração geral
+
+
+* O que for adicionado nessas configurações irá ser aplicado em todos os chunks do seu arquivo!
+
+
+{r setup, include=FALSE}
+
+
+
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.align = 'center')
+
+- São exemplos, você pode consultar quais [KnitR Options](https://yihui.name/knitr/options/) são mais adequadas para seu projeto :)
+
+
+---
+
 #Adicionando código R fora do chunk 
 
 ```r
@@ -461,7 +486,7 @@ plot(wt, mpg, main="Scatterplot Example",
 xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
 ```
 
-![](index_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -491,8 +516,58 @@ DT::datatable(head(mtcars, 10),
   fillContainer = FALSE, options = list(pageLength = 5))
 ```
 
-<div id="htmlwidget-18c20788e403dbecf9dd" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-18c20788e403dbecf9dd">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-dbf10cd04436f29c6995" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dbf10cd04436f29c6995">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+** Adicionar imagens usando o knitR**
+
+Função: `knitr::include_graphics()`
+
+Exemplo:
+
+```r
+knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png")
+```
+
+&lt;img src="https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png" width="50%" style="display: block; margin: auto;" /&gt;
+---
+
+** Adicionar imagens usando o knitR: Opções do chunk**
+
+- `out.width = "50%"` - Porcentagem do tamanho da imagem
+&lt;img src="https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+[KnitR Options](https://yihui.name/knitr/options/#chunk-options)
+
+---
+
+** Adicionar figuras usando o knitR: Opções do chunk**
+
+- **Alinhamento da figuras**
+- `fig.align = 'center', 'default', **'left'**,'right'` 
+
+&lt;img src="https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png" width="20%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+- `fig.align = 'center', 'default', 'left', **'right' **`
+
+&lt;img src="https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png" width="20%" style="display: block; margin: auto 0 auto auto;" /&gt;
+---
+
+** Adicionar figuras usando o knitR: Opções do chunk**
+
+- **Alinhamento da figuras**
+
+- `fig.cap="plotting example"`
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png" alt="plotting example" width="20%" /&gt;
+&lt;p class="caption"&gt;plotting example&lt;/p&gt;
+&lt;/div&gt;
+
 
 ---
 # Exercício
@@ -507,13 +582,18 @@ DT::datatable(head(mtcars, 10),
 1. Aprecie sua apresentação feita no R :D
 
 - ** A melhor forma de aprender é ir testando!**
+
+&lt;img src="https://media.giphy.com/media/1OYz3MODIHWplkknl7/giphy.gif" width="30%" style="display: block; margin: auto;" /&gt;
 ---
 
 # Compartilhando a apresentação 
 
 ## Salvar em PDF 
-Usando o navegador Chrome, imprima para arquivo (Ctrl + P). Não dá certo com o Mozzila Firefox :(. 
-* https://github.com/yihui/xaringan/wiki/Export-Slides-to-PDF
+Usando o navegador Chrome ou no Chromium, imprima para arquivo (Ctrl + P). 
+
+Não dá certo com o Mozilla Firefox :(. 
+
+Consulta: https://github.com/yihui/xaringan/wiki/Export-Slides-to-PDF
 
 ## Salvar em HTML
 - O formato que utilizamos para exportar uma apresentação elaborada com o xaringan é **.html**. Para isso, é necessário apertar o botão Knit (mostrado anteriormente).
@@ -529,7 +609,7 @@ Usando o navegador Chrome, imprima para arquivo (Ctrl + P). Não dá certo com o
 &lt;img src="imagens/github1.jpg" style="width: 50%"&gt;
 &lt;/center&gt;
 
-* OBS: [Esse post do @w_oliveiras](https://medium.com/trainingcenter/plano-para-estudar-git-e-github-enquanto-aprende-programa%C3%A7%C3%A3o-f5d5f986f459) é sobre como usar git e github e pode ajudar! 
+* OBS: [Esse post do @w_oliveiras](https://medium.com/trainingcenter/plano-para-estudar-git-e-github-enquanto-aprende-programa%C3%A7%C3%A3o-f5d5f986f459) é sobre como usar git e github utilizando o terminal/linha de comando e pode ajudar! 
 
 ---
 # Compartilhando a apresentação via Github Pages
@@ -591,12 +671,22 @@ Usando o navegador Chrome, imprima para arquivo (Ctrl + P). Não dá certo com o
 &lt;/center&gt;
 ---
 # Compartilhando a apresentação via Github Pages
-8) ... e na seção Github Pages, selecione **master brach /docs folder**:.
+8) ... e na seção Github Pages, selecione **master branch /docs folder**:.
 &lt;center&gt;
 &lt;img src="imagens/github8.jpg" style="width: 90%"&gt;
 &lt;/center&gt;
 
 &lt;center&gt; &lt;strong&gt;Resultado&lt;/strong&gt;: &lt;a href="https://beatrizmilz.github.io/teste/"&gt;https://beatrizmilz.github.io/teste/&lt;/a&gt; &lt;/center&gt; 
+---
+class:  inverse, center, middle
+#Agora é só enviar o link das suas apresentações lindas!
+Dica: Criar um URL mais curto com o [Bitly](https://bitly.com/)
+
+[bit.ly/RLadiesSP3](https://bit.ly/RLadiesSP3)
+
+
+&lt;img src="https://media.giphy.com/media/pOTEhtq8Jv7voNl7mb/giphy.gif" width="50%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 # Referências
@@ -613,17 +703,31 @@ Usando o navegador Chrome, imprima para arquivo (Ctrl + P). Não dá certo com o
     + [Kunoichi no Github](https://github.com/emitanaka/ninja-theme)
     + [Emi Tanaka](https://twitter.com/statsgen)!
 
-
 - Material de estudo:
     + [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 
-- Thanks!
+&lt;img src="https://media.giphy.com/media/ORjPQ0bLfqIUSsFiSQ/giphy.gif" width="20%" style="display: block; margin: auto 0 auto auto;" /&gt;
 
 ---
-class: inverse, center, middle
+
+class:  inverse, center, middle
 
 # Obrigada!
-Apresentação elaborada com [Xaringan](https://github.com/yihui/xaringan) e [Kunoichi](https://github.com/emitanaka/ninja-theme)
+Apresentação elaborada com [Xaringan](https://github.com/yihui/xaringan) e [Kunoichi](https://github.com/emitanaka/ninja-theme).
+
+
+Agradecimentos especiais:
+
+[Bruna Wundervald](http://brunaw.com/) pela revisão e sugestões. 
+
+[Julio Trecenti](https://github.com/jtrecenti), [Curso-R](https://www.curso-r.com/) e [13 aMostra de Estatística - IME  USP](https://www.ime.usp.br/~amostra/) pelo mini-curso de Rmarkdown.
+
+[Maria Marinho](https://github.com/MaryMS) pelas sugestões e ajuda com a versão em pdf.
+
+&lt;img src="https://media.giphy.com/media/osjgQPWRx3cac/giphy.gif" width="20%" style="display: block; margin: auto;" /&gt;
+
+
+
 
 &lt;script src="remark-latest.min.js"&gt;
     </textarea>

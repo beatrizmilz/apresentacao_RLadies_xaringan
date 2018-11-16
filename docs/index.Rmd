@@ -1,8 +1,8 @@
 ---
 title: "Comunicando seus resultados: criando apresentações com R"
-subtitle: "Meetup R-Ladies SP"
+subtitle: "Meetup R-Ladies SP - N. 3"
 author: "Beatriz Milz"
-date: "21/11/2018 (Atualizado em: `r Sys.Date()`)"
+date: "21/11/2018"
 output:
   xaringan::moon_reader:
     yolo: false
@@ -13,11 +13,14 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.align = 'center')
+```
 
 class: split-two with-border
 .column.bg-main1[.content[
   # Sobre mim
-<center>  <img src="imagens/foto.jpg" width="500px"/></center>
+<center>  <img src="imagens/foto-coda.jpg" height="500px"/></center>
 ]]
 .column.bg-main2[.content[
   - Beatriz Milz, 25 anos, Diadema.<br><br>
@@ -49,6 +52,14 @@ class: inverse, center, middle
 2) Prática sobre como criar uma apresentação utilizando o pacote Xaringan. 
 
 3) Hospedagem da apresentação utilizando o Github Pages.
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("https://media.giphy.com/media/dNgK7Ws7y176U/giphy.gif")
+```
+
+
+
+
 ---
 class: inverse, middle
 
@@ -254,8 +265,11 @@ Calma! É bem comum dar erro ao compliar o arquivo pois **qualquer** código err
 - Yaml header - se algo estiver errado, vai dar erro ao compilar. Muito cuidado com a identação!
 
 - Código nos chunks - teste o Run All Chunks e ver se dá erro em algum específico. Se descobrir, tente verificar o que há de errado no código (pode ser a falta de um parênteses, vírgula, entre outros).
----
 
+```{r echo=FALSE, out.width="30%"}
+knitr::include_graphics("https://media.giphy.com/media/j9GASQ5ocrIRicnmyq/giphy.gif")
+```
+---
 
 class: split-70 hide-slide-number
 background-image: url("")
@@ -267,13 +281,13 @@ background-size: cover
 .column[
 ]
 
----
-class: inverse, center, middle
 
 # Markdown
 * O markdown é uma linguagem de marcação simples. 
 * [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
 * Elaborada para ser fácil de ler, fácil de escrever.
+
+
 
 
 ---
@@ -405,6 +419,23 @@ class: inverse, center, middle
 Dica de atalho: Ctrl-Shift-Enter - O Rstudio executa o código e disponibiliza os resultados abaixo do código.
 
 ---
+# Adicionando um chunk de configuração geral
+
+
+* O que for adicionado nessas configurações irá ser aplicado em todos os chunks do seu arquivo!
+
+
+{r setup, include=FALSE}
+
+
+
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.align = 'center')
+
+- São exemplos, você pode consultar quais [KnitR Options](https://yihui.name/knitr/options/) são mais adequadas para seu projeto :)
+
+
+---
+
 #Adicionando código R fora do chunk 
 ```{r eval=FALSE, include=TRUE}
 `r `
@@ -443,6 +474,58 @@ DT::datatable(head(mtcars, 10),
   fillContainer = FALSE, options = list(pageLength = 5))
 ```
 
+
+---
+
+** Adicionar imagens usando o knitR**
+
+Função: `knitr::include_graphics()`
+
+Exemplo:
+```{r  out.width = "50%"}
+knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png")
+```
+---
+
+** Adicionar imagens usando o knitR: Opções do chunk**
+
+- `out.width = "50%"` - Porcentagem do tamanho da imagem
+```{r echo=FALSE, out.width = "50%"}
+knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png")
+```
+
+[KnitR Options](https://yihui.name/knitr/options/#chunk-options)
+
+---
+
+** Adicionar figuras usando o knitR: Opções do chunk**
+
+- **Alinhamento da figuras**
+- `fig.align = 'center', 'default', **'left'**,'right'` 
+
+```{r echo=FALSE,  out.width="20%", fig.align='left'} 
+knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png")
+```
+
+- `fig.align = 'center', 'default', 'left', **'right' **`
+
+```{r echo=FALSE,  out.width="20%", fig.align='right'}
+knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png")
+```
+---
+
+** Adicionar figuras usando o knitR: Opções do chunk**
+
+- **Alinhamento da figuras**
+
+- `fig.cap="plotting example"`
+
+
+```{r echo=FALSE,  out.width="20%", fig.cap="plotting example"}
+knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png")
+```
+
+
 ---
 # Exercício
 
@@ -456,13 +539,20 @@ DT::datatable(head(mtcars, 10),
 1. Aprecie sua apresentação feita no R :D
 
 - ** A melhor forma de aprender é ir testando!**
+
+```{r echo=FALSE, out.width="30%"}
+knitr::include_graphics("https://media.giphy.com/media/1OYz3MODIHWplkknl7/giphy.gif")
+```
 ---
 
 # Compartilhando a apresentação 
 
 ## Salvar em PDF 
-Usando o navegador Chrome, imprima para arquivo (Ctrl + P). Não dá certo com o Mozzila Firefox :(. 
-* https://github.com/yihui/xaringan/wiki/Export-Slides-to-PDF
+Usando o navegador Chrome ou no Chromium, imprima para arquivo (Ctrl + P). 
+
+Não dá certo com o Mozilla Firefox :(. 
+
+Consulta: https://github.com/yihui/xaringan/wiki/Export-Slides-to-PDF
 
 ## Salvar em HTML
 - O formato que utilizamos para exportar uma apresentação elaborada com o xaringan é **.html**. Para isso, é necessário apertar o botão Knit (mostrado anteriormente).
@@ -478,7 +568,7 @@ Usando o navegador Chrome, imprima para arquivo (Ctrl + P). Não dá certo com o
 <img src="imagens/github1.jpg" style="width: 50%">
 </center>
 
-* OBS: [Esse post do @w_oliveiras](https://medium.com/trainingcenter/plano-para-estudar-git-e-github-enquanto-aprende-programa%C3%A7%C3%A3o-f5d5f986f459) é sobre como usar git e github e pode ajudar! 
+* OBS: [Esse post do @w_oliveiras](https://medium.com/trainingcenter/plano-para-estudar-git-e-github-enquanto-aprende-programa%C3%A7%C3%A3o-f5d5f986f459) é sobre como usar git e github utilizando o terminal/linha de comando e pode ajudar! 
 
 ---
 # Compartilhando a apresentação via Github Pages
@@ -540,12 +630,24 @@ Usando o navegador Chrome, imprima para arquivo (Ctrl + P). Não dá certo com o
 </center>
 ---
 # Compartilhando a apresentação via Github Pages
-8) ... e na seção Github Pages, selecione **master brach /docs folder**:.
+8) ... e na seção Github Pages, selecione **master branch /docs folder**:.
 <center>
 <img src="imagens/github8.jpg" style="width: 90%">
 </center>
 
 <center> <strong>Resultado</strong>: <a href="https://beatrizmilz.github.io/teste/">https://beatrizmilz.github.io/teste/</a> </center> 
+---
+class:  inverse, center, middle
+#Agora é só enviar o link das suas apresentações lindas!
+Dica: Criar um URL mais curto com o [Bitly](https://bitly.com/)
+
+[bit.ly/RLadiesSP3](https://bit.ly/RLadiesSP3)
+
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("https://media.giphy.com/media/pOTEhtq8Jv7voNl7mb/giphy.gif")
+```
+
 
 ---
 # Referências
@@ -562,16 +664,34 @@ Usando o navegador Chrome, imprima para arquivo (Ctrl + P). Não dá certo com o
     + [Kunoichi no Github](https://github.com/emitanaka/ninja-theme)
     + [Emi Tanaka](https://twitter.com/statsgen)!
 
-
 - Material de estudo:
     + [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 
-- Thanks!
+```{r echo=FALSE, out.width="20%", fig.align='right'}
+knitr::include_graphics("https://media.giphy.com/media/ORjPQ0bLfqIUSsFiSQ/giphy.gif")
+```
 
 ---
-class: inverse, center, middle
+
+class:  inverse, center, middle
 
 # Obrigada!
-Apresentação elaborada com [Xaringan](https://github.com/yihui/xaringan) e [Kunoichi](https://github.com/emitanaka/ninja-theme)
+Apresentação elaborada com [Xaringan](https://github.com/yihui/xaringan) e [Kunoichi](https://github.com/emitanaka/ninja-theme).
+
+
+Agradecimentos especiais:
+
+[Bruna Wundervald](http://brunaw.com/) pela revisão e sugestões. 
+
+[Julio Trecenti](https://github.com/jtrecenti), [Curso-R](https://www.curso-r.com/) e [13 aMostra de Estatística - IME  USP](https://www.ime.usp.br/~amostra/) pelo mini-curso de Rmarkdown.
+
+[Maria Marinho](https://github.com/MaryMS) pelas sugestões e ajuda com a versão em pdf.
+
+```{r echo=FALSE, out.width="20%"}
+knitr::include_graphics("https://media.giphy.com/media/osjgQPWRx3cac/giphy.gif")
+```
+
+
+
 
 <script src="remark-latest.min.js">
