@@ -119,6 +119,19 @@ Github:
 devtools::install_github("yihui/xaringan")
 ```
 
+---
+
+# Outras formas de criar apresentações: 
+
+* output: **beamer_presentation** ->  beamer (pdf)
+
+
+* output: **ioslides_presentation** -> ioslides (HTML) 
+
+
+* output: **slidy_presentation** ->  slidy (HTML)
+
+Obs: para separar entre um slide e outro, usar três *
 
 ---
 
@@ -451,7 +464,7 @@ Exemplo: O banco de dados mtcars possui `r nrow(mtcars)` carros cadastrados.
 * Útil para relatórios!
 
 ---
-** Exemplo: Adicionar um gráfico**
+# Exemplo: Adicionar um gráfico
 ```{r}
 attach(mtcars)
 plot(wt, mpg, main="Scatterplot Example",
@@ -460,7 +473,7 @@ xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
 
 
 ---
-** Exemplo: Adicionar uma tabela**
+# Exemplo: Adicionar uma tabela
 
 ```{r }
 head(mtcars)
@@ -468,7 +481,7 @@ head(mtcars)
 
 
 ---
-** Exemplo: Adicionar uma tabela**
+# Exemplo: Adicionar uma tabela
 ```{r}
 DT::datatable(head(mtcars, 10),
   fillContainer = FALSE, options = list(pageLength = 5))
@@ -477,7 +490,7 @@ DT::datatable(head(mtcars, 10),
 
 ---
 
-** Adicionar imagens usando o knitR**
+# Adicionar imagens usando o knitR
 
 Função: `knitr::include_graphics()`
 
@@ -487,7 +500,7 @@ knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-Ladies
 ```
 ---
 
-** Adicionar imagens usando o knitR: Opções do chunk**
+# Adicionar imagens usando o knitR: Opções do chunk
 
 - `out.width = "50%"` - Porcentagem do tamanho da imagem
 ```{r echo=FALSE, out.width = "50%"}
@@ -498,7 +511,7 @@ knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-Ladies
 
 ---
 
-** Adicionar figuras usando o knitR: Opções do chunk**
+# Adicionar figuras usando o knitR: Opções do chunk
 
 - **Alinhamento da figuras**
 - `fig.align = 'center', 'default', **'left'**,'right'` 
@@ -514,7 +527,7 @@ knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-Ladies
 ```
 ---
 
-** Adicionar figuras usando o knitR: Opções do chunk**
+# Adicionar figuras usando o knitR: Opções do chunk
 
 - **Alinhamento da figuras**
 
@@ -525,7 +538,30 @@ knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-Ladies
 knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png")
 ```
 
+---
+# Adicionar Fórmulas
 
+Para escrever fórmulas, utilizar LaTeX.
+Existe duas formas:
+
+* Centralizado - usar $$
+
+```{r eval=FALSE, include=TRUE}
+$$celsius = kelvin - 273.15$$
+```
+
+
+
+$$celsius = kelvin - 273.15$$
+* "Inline" - usar $
+
+```{r eval=FALSE, include=TRUE}
+$$ fahrenheit = celsius \times \frac{9}{5} + 32 $$
+```
+
+$$ fahrenheit = celsius \times \frac{9}{5} + 32 $$
+
+Para outros símbolos matemáticos, [consulte aqui](https://en.wikibooks.org/wiki/LaTeX/Mathematics). 
 ---
 # Exercício
 
@@ -684,6 +720,8 @@ Agradecimentos especiais:
 [Bruna Wundervald](http://brunaw.com/) pela revisão e sugestões. 
 
 [Julio Trecenti](https://github.com/jtrecenti), [Curso-R](https://www.curso-r.com/) e [13 aMostra de Estatística - IME  USP](https://www.ime.usp.br/~amostra/) pelo mini-curso de Rmarkdown.
+
+[DataCamp](https://www.datacamp.com) - Reporting with R Markdown Course.
 
 [Maria Marinho](https://github.com/MaryMS) pelas sugestões e ajuda com a versão em pdf.
 

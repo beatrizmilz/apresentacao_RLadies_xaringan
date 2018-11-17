@@ -132,6 +132,19 @@ Github:
 devtools::install_github("yihui/xaringan")
 ```
 
+---
+
+# Outras formas de criar apresentações: 
+
+* output: **beamer_presentation** -&gt;  beamer (pdf)
+
+
+* output: **ioslides_presentation** -&gt; ioslides (HTML) 
+
+
+* output: **slidy_presentation** -&gt;  slidy (HTML)
+
+Obs: para separar entre um slide e outro, usar três *
 
 ---
 
@@ -478,7 +491,7 @@ Exemplo: O banco de dados mtcars possui 32 carros cadastrados.
 * Útil para relatórios!
 
 ---
-** Exemplo: Adicionar um gráfico**
+# Exemplo: Adicionar um gráfico
 
 ```r
 attach(mtcars)
@@ -490,7 +503,7 @@ xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
 
 
 ---
-** Exemplo: Adicionar uma tabela**
+# Exemplo: Adicionar uma tabela
 
 
 ```r
@@ -509,20 +522,20 @@ head(mtcars)
 
 
 ---
-** Exemplo: Adicionar uma tabela**
+# Exemplo: Adicionar uma tabela
 
 ```r
 DT::datatable(head(mtcars, 10),
   fillContainer = FALSE, options = list(pageLength = 5))
 ```
 
-<div id="htmlwidget-dbf10cd04436f29c6995" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dbf10cd04436f29c6995">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6798a6974746163ee9f4" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6798a6974746163ee9f4">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 
 ---
 
-** Adicionar imagens usando o knitR**
+# Adicionar imagens usando o knitR
 
 Função: `knitr::include_graphics()`
 
@@ -535,7 +548,7 @@ knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-Ladies
 &lt;img src="https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png" width="50%" style="display: block; margin: auto;" /&gt;
 ---
 
-** Adicionar imagens usando o knitR: Opções do chunk**
+# Adicionar imagens usando o knitR: Opções do chunk
 
 - `out.width = "50%"` - Porcentagem do tamanho da imagem
 &lt;img src="https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png" width="50%" style="display: block; margin: auto;" /&gt;
@@ -544,7 +557,7 @@ knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-Ladies
 
 ---
 
-** Adicionar figuras usando o knitR: Opções do chunk**
+# Adicionar figuras usando o knitR: Opções do chunk
 
 - **Alinhamento da figuras**
 - `fig.align = 'center', 'default', **'left'**,'right'` 
@@ -556,7 +569,7 @@ knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-Ladies
 &lt;img src="https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png" width="20%" style="display: block; margin: auto 0 auto auto;" /&gt;
 ---
 
-** Adicionar figuras usando o knitR: Opções do chunk**
+# Adicionar figuras usando o knitR: Opções do chunk
 
 - **Alinhamento da figuras**
 
@@ -568,7 +581,32 @@ knitr::include_graphics("https://rladies.org/wp-content/uploads/2016/12/R-Ladies
 &lt;p class="caption"&gt;plotting example&lt;/p&gt;
 &lt;/div&gt;
 
+---
+# Adicionar Fórmulas
 
+Para escrever fórmulas, utilizar LaTeX.
+Existe duas formas:
+
+* Centralizado - usar $$
+
+
+```r
+$$celsius = kelvin - 273.15$$
+```
+
+
+
+`$$celsius = kelvin - 273.15$$`
+* "Inline" - usar $
+
+
+```r
+$$ fahrenheit = celsius \times \frac{9}{5} + 32 $$
+```
+
+$$ fahrenheit = celsius \times \frac{9}{5} + 32 $$
+
+Para outros símbolos matemáticos, [consulte aqui](https://en.wikibooks.org/wiki/LaTeX/Mathematics). 
 ---
 # Exercício
 
@@ -721,6 +759,8 @@ Agradecimentos especiais:
 [Bruna Wundervald](http://brunaw.com/) pela revisão e sugestões. 
 
 [Julio Trecenti](https://github.com/jtrecenti), [Curso-R](https://www.curso-r.com/) e [13 aMostra de Estatística - IME  USP](https://www.ime.usp.br/~amostra/) pelo mini-curso de Rmarkdown.
+
+[DataCamp](https://www.datacamp.com) - Reporting with R Markdown Course.
 
 [Maria Marinho](https://github.com/MaryMS) pelas sugestões e ajuda com a versão em pdf.
 
